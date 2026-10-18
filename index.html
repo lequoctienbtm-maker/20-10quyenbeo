@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f0e9">
+<title>20.10 — Gửi mẹ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+:root{--paper:#fffaf3;--ink:#49343c;--rose:#b85f78;--rose2:#e8a5ad;--gold:#caa56c;--sage:#7f9781}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'DM Sans',sans-serif;background:#f8f0e9;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 15% 15%,#fffdf8 0,transparent 45%),radial-gradient(ellipse at 90% 80%,#efd6d7 0,transparent 35%),linear-gradient(135deg,#f8f0e9,#f3e2e0 55%,#f8f0e9)}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E")}
+main{position:relative;z-index:1;width:min(100% - 30px,850px);margin:auto;padding:40px 0 70px;text-align:center}
+.kicker{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#a77b7e;font-weight:700;display:flex;align-items:center;justify-content:center;gap:13px}
+.kicker:before,.kicker:after{content:"";height:1px;width:38px;background:#c6a0a0}
+h1{font:500 clamp(42px,8vw,76px)/1.04 'Playfair Display',Georgia,serif;letter-spacing:-.045em;margin:20px 0 13px;color:#4e3941}
+h1 em{font-weight:400;color:var(--rose)}
+.lead{margin:0 auto;max-width:440px;color:#8e7379;line-height:1.8;font-size:14px}
+.letter-zone{position:relative;width:min(100%,480px);height:350px;margin:18px auto 0;display:grid;place-items:center;perspective:1200px}
+.halo{position:absolute;width:260px;height:260px;border-radius:50%;background:#d99aa64a;filter:blur(42px);transition:all 1.2s ease}
+.envelope-button{position:relative;width:min(330px,83vw);height:235px;border:0;background:transparent;padding:0;cursor:pointer;z-index:4;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent}
+.envelope-button:hover{transform:translateY(-5px) rotate(-.5deg)}
+.envelope-button:focus-visible{outline:2px solid #b85f78;outline-offset:8px;border-radius:12px}
+.envelope{position:absolute;inset:0;filter:drop-shadow(0 20px 24px #7e555025);transition:filter .5s}
+.env-back{position:absolute;inset:0;background:#e7c5bd;border-radius:5px 5px 12px 12px}
+.letter-paper{position:absolute;left:7%;width:86%;height:88%;bottom:4%;background:linear-gradient(140deg,#fffdf7,#f8eee1);border:1px solid #dfcdb9;box-shadow:0 2px 8px #8d6b4a0d;transition:transform 1.15s cubic-bezier(.18,.85,.2,1),bottom 1.15s;z-index:1;display:flex;align-items:flex-start;justify-content:center;padding-top:21px}
+.letter-paper:before{content:"";position:absolute;inset:10px;border:1px solid #ddc7af70}
+.letter-title{font:italic 22px 'Playfair Display',serif;color:#a75b70;opacity:0;transform:translateY(10px);transition:all .6s .55s}
+.env-front{position:absolute;inset:0;z-index:3;background:#d8aaa8;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:4px 4px 12px 12px}
+.env-left{position:absolute;inset:0;z-index:2;background:linear-gradient(130deg,#efd5c6,#dcb4ad);clip-path:polygon(0 0,50% 55%,0 100%)}
+.env-right{position:absolute;inset:0;z-index:2;background:linear-gradient(220deg,#efd6ca,#d6a5a5);clip-path:polygon(100% 0,50% 55%,100% 100%)}
+.flap{position:absolute;inset:0;z-index:5;background:linear-gradient(150deg,#f1d7ca,#d8a6a5);clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top center;transition:transform .9s cubic-bezier(.2,.7,.15,1),opacity .35s .45s;backface-visibility:hidden}
+.seal{position:absolute;z-index:6;left:50%;top:52%;width:43px;height:43px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#c9828b,#a94e68);box-shadow:0 3px 8px #8b3e572e;display:grid;place-items:center;color:#f9e8d8;font-size:18px;transition:opacity .3s,transform .5s}
+.seal:after{content:"✦";font-size:17px}
+.instruction{margin:-2px 0 0;font-size:10px;font-weight:700;letter-spacing:.22em;color:#a77b7e;text-transform:uppercase;transition:opacity .3s}
+.instruction span{display:inline-block;margin-right:7px;color:#b85f78;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:.45;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+.letter-zone.open .envelope-button{transform:translateY(24px) scale(.8);opacity:0;pointer-events:none;transition:transform .8s,opacity .6s .18s}
+.letter-zone.open .flap{transform:rotateX(180deg);opacity:0}
+.letter-zone.open .letter-paper{transform:translateY(-145px) scale(1.04);bottom:12%}
+.letter-zone.open .letter-title{opacity:1;transform:translateY(0)}
+.letter-zone.open .halo{transform:scale(1.65);background:#e9a5b34f}
+.burst{position:absolute;inset:0;pointer-events:none;z-index:5}
+.flower{position:absolute;left:50%;top:51%;width:var(--s);height:var(--s);opacity:0;transform:translate(-50%,-50%) scale(.1) rotate(-30deg)}
+.flower.bloom{animation:bloom 1.45s cubic-bezier(.16,.78,.18,1.1) forwards}
+@keyframes bloom{0%{opacity:0;transform:translate(-50%,-50%) scale(.05) rotate(-30deg)}55%{opacity:1}100%{opacity:1;transform:translate(var(--x),var(--y)) scale(1) rotate(var(--r))}}
+.flower svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 5px 6px #99677722)}
+.wishes{position:relative;z-index:2;width:min(100%,650px);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;opacity:0;max-height:0;overflow:hidden;transform:translateY(24px);transition:max-height 1.3s ease,opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.wishes.show{max-height:1200px;opacity:1;transform:translateY(0);margin-top:2px}
+.wish{position:relative;padding:20px 20px 21px;background:#fffaf3a8;border:1px solid #fffdf5;border-radius:3px 15px 3px 15px;box-shadow:0 8px 25px #8d62600a;line-height:1.8;font-size:13px;color:#755b60;animation:cardin .8s both}
+.wish:nth-child(2n){animation-delay:.12s}.wish:nth-child(3n){animation-delay:.24s}.wish:nth-child(4n){animation-delay:.36s}.wish:nth-child(5n){animation-delay:.48s}.wish:nth-child(6n){animation-delay:.6s}
+@keyframes cardin{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.wish .index{display:block;color:#b97883;font:italic 19px 'Playfair Display',serif;margin-bottom:8px}
+.wish:after{content:"";position:absolute;bottom:10px;right:12px;width:18px;height:1px;background:#d7b6a4}
+.after-note{font:italic clamp(20px,4vw,27px) 'Playfair Display',serif;color:#a45d72;margin:28px auto 0;opacity:0;transform:translateY(10px);transition:all .8s .5s}
+.after-note.show{opacity:1;transform:translateY(0)}
+.reset{display:none;margin:25px auto 0;background:transparent;border:1px solid #caa5a0;color:#956773;padding:11px 17px;border-radius:30px;font:600 11px 'DM Sans',sans-serif;letter-spacing:.08em;cursor:pointer}
+.reset.show{display:inline-block}
+.petal{position:fixed;top:-30px;left:var(--left);z-index:8;pointer-events:none;color:var(--color);font-size:var(--size);animation:fall var(--dur) linear var(--delay) forwards}
+@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(700deg);opacity:.1}}
+.spark{position:fixed;z-index:7;pointer-events:none;color:#c58b8f;animation:sparkle 1.5s ease-out forwards}
+@keyframes sparkle{0%{opacity:0;transform:scale(.2) rotate(0)}35%{opacity:1}100%{opacity:0;transform:scale(1.5) rotate(90deg)}}
+.bottom{margin-top:35px;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#b39496}
+@media(max-width:560px){main{padding-top:32px}.letter-zone{height:320px;margin-top:12px}.wishes{grid-template-columns:1fr;gap:9px}.wish{padding:16px 17px}.wishes.show{max-height:1900px}.bottom{margin-top:26px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<main>
+  <div class="kicker">20 · 10 · 2026</div>
+  <h1>Gửi mẹ, <em>một chút dịu dàng.</em></h1>
+  <p class="lead">Một chiếc phong thư nhỏ, dành cho người luôn xứng đáng nhận được những điều tốt đẹp.</p>
+
+  <section class="letter-zone" id="letterZone">
+    <div class="halo"></div>
+    <div class="burst" id="burst" aria-hidden="true"></div>
+    <button class="envelope-button" id="openLetter" aria-label="Mở phong thư chúc mừng ngày 20 tháng 10">
+      <div class="envelope">
+        <div class="env-back"></div>
+        <div class="letter-paper"><span class="letter-title">Dành riêng cho mẹ ✿</span></div>
+        <div class="env-left"></div><div class="env-right"></div><div class="env-front"></div>
+        <div class="flap"></div><div class="seal"></div>
+      </div>
+    </button>
+  </section>
+  <p class="instruction" id="instruction"><span>✦</span> BẤM VÀO PHONG THƯ ĐỂ MỞ</p>
+
+  <section class="wishes" id="wishes" aria-live="polite">
+    <article class="wish"><span class="index">01 — Sức khỏe</span>Chúc mẹ luôn mạnh khỏe, ăn ngon, ngủ ngon và có thật nhiều năng lượng cho những điều mẹ yêu thích. Mong những ngày mệt mỏi sẽ ít đi, còn những ngày vui vẻ sẽ nhiều lên.</article>
+    <article class="wish"><span class="index">02 — Bình an</span>Chúc mẹ luôn bình an trên mọi chặng đường. Mong mẹ không phải lo nghĩ quá nhiều, những chuyện khó khăn đều dần được tháo gỡ và trong lòng lúc nào cũng có sự nhẹ nhõm.</article>
+    <article class="wish"><span class="index">03 — Niềm vui</span>Mong mỗi ngày mẹ đều có ít nhất một điều khiến mẹ mỉm cười: một món ăn ngon, một cuộc trò chuyện vui, một buổi chiều thư thả hay đơn giản là một ngày mọi việc đều suôn sẻ.</article>
+    <article class="wish"><span class="index">04 — May mắn</span>Chúc mẹ gặp nhiều may mắn, làm gì cũng thuận lợi, những dự định đang ấp ủ sẽ dần thành hiện thực. Mong những điều mẹ cố gắng bấy lâu sẽ mang lại kết quả thật xứng đáng.</article>
+    <article class="wish"><span class="index">05 — Thảnh thơi</span>Mong mẹ luôn dành được thời gian cho bản thân, làm những việc mẹ thích và nghỉ ngơi khi cần. Mẹ cũng xứng đáng có những ngày chẳng cần vội vàng, chỉ tận hưởng sự thoải mái và yên bình.</article>
+    <article class="wish"><span class="index">06 — Rạng rỡ</span>Chúc mẹ lúc nào cũng tươi tắn, tự tin và rạng rỡ theo cách riêng của mẹ. Mong mẹ luôn có những người tử tế bên cạnh, được quan tâm, được lắng nghe và được đối xử bằng sự chân thành.</article>
+    <article class="wish"><span class="index">07 — Thuận lợi</span>Chúc công việc của mẹ ngày càng thuận lợi, những điều phiền lòng sớm qua đi và những cơ hội tốt sẽ đến đúng lúc. Mong mẹ luôn đủ vững vàng để giải quyết mọi việc theo cách của mình.</article>
+    <article class="wish"><span class="index">08 — Những điều tốt đẹp</span>Chúc mẹ có thật nhiều khoảnh khắc đáng nhớ, những chuyến đi vui, những bữa cơm ngon và những ngày bình thường nhưng dễ chịu. Mong cuộc sống sẽ dịu dàng với mẹ hơn một chút mỗi ngày.</article>
+    <article class="wish"><span class="index">09 — Tài lộc</span>Chúc mẹ luôn dư dả, tài lộc hanh thông, mọi việc tính toán đều thuận lợi và công sức bỏ ra được đền đáp xứng đáng. Mong mẹ luôn an tâm với những điều mình đang xây dựng.</article>
+    <article class="wish"><span class="index">10 — Mỗi ngày</span>Ngày 20/10 vui vẻ nhé mẹ. Chúc mẹ không chỉ hôm nay mà cả những ngày sau nữa đều khỏe mạnh, vui vẻ, bình an và gặp thật nhiều điều may mắn. Mong mọi điều tốt đẹp nhất sẽ luôn tìm đến mẹ.</article>
+  </section>
+  <p class="after-note" id="afterNote">Chúc mẹ một ngày 20/10 thật đẹp.</p>
+  <button class="reset" id="again">↻ &nbsp; Ngắm hoa thêm lần nữa</button>
+  <div class="bottom">Một ngày dành riêng để chúc mẹ những điều tốt đẹp</div>
+</main>
+<script>
+const zone=document.getElementById('letterZone'),openBtn=document.getElementById('openLetter'),burst=document.getElementById('burst');
+const wishes=document.getElementById('wishes'),instruction=document.getElementById('instruction'),afterNote=document.getElementById('afterNote'),again=document.getElementById('again');
+let opened=false;
+const palettes=[['#d77f94','#f6d8a6'],['#e7a3b0','#fff0c8'],['#b89acb','#f4d5e5'],['#dca36e','#fff0bd'],['#c96f83','#f4c5bc'],['#9eaf91','#e9d5a5']];
+function flowerSvg(p,c){return `<svg viewBox="0 0 100 100"><g transform="translate(50 50)">${Array.from({length:8},(_,i)=>`<ellipse cx="0" cy="-22" rx="10" ry="19" fill="${p}" stroke="#fff9ef" stroke-opacity=".5" stroke-width="1.2" transform="rotate(${i*45})"/>`).join('')}<circle r="11" fill="${c}"/><circle cx="-3" cy="-3" r="3" fill="#fff7d9" opacity=".9"/></g></svg>`}
+function bloom(){
+ burst.innerHTML='';
+ const count=27;
+ for(let i=0;i<count;i++){
+  const f=document.createElement('div');f.className='flower';
+  const a=(i/count)*Math.PI*2-.9,rad=105+(i%5)*17;
+  f.style.setProperty('--x',`${Math.cos(a)*rad}px`);f.style.setProperty('--y',`${Math.sin(a)*rad*.72}px`);
+  f.style.setProperty('--r',`${i*27-50}deg`);f.style.setProperty('--s',`${24+(i%4)*10}px`);
+  f.style.animationDelay=`${i*30}ms`;const col=palettes[i%palettes.length];f.innerHTML=flowerSvg(col[0],col[1]);burst.appendChild(f);
+  requestAnimationFrame(()=>f.classList.add('bloom'));
+ }
+ // small distant blossoms around the whole composition
+ for(let i=0;i<15;i++){
+  const f=document.createElement('div');f.className='flower';
+  const a=(i/15)*Math.PI*2,rad=150+(i%3)*15;
+  f.style.setProperty('--x',`${Math.cos(a)*rad}px`);f.style.setProperty('--y',`${Math.sin(a)*rad*.6}px`);
+  f.style.setProperty('--r',`${i*31}deg`);f.style.setProperty('--s',`${17+(i%3)*7}px`);
+  f.style.animationDelay=`${250+i*55}ms`;const col=palettes[(i+2)%palettes.length];f.innerHTML=flowerSvg(col[0],col[1]);burst.appendChild(f);
+  requestAnimationFrame(()=>f.classList.add('bloom'));
+ }
+}
+function fallingPetals(){
+ for(let i=0;i<38;i++){
+  const p=document.createElement('span');p.className='petal';p.textContent=['✿','❀','✧','·','✽'][i%5];
+  p.style.setProperty('--left',Math.random()*100+'vw');p.style.setProperty('--color',palettes[i%palettes.length][0]);
+  p.style.setProperty('--size',(12+Math.random()*17)+'px');p.style.setProperty('--drift',(Math.random()*220-110)+'px');
+  p.style.setProperty('--dur',(5+Math.random()*6)+'s');p.style.setProperty('--delay',(Math.random()*1.7)+'s');
+  document.body.appendChild(p);setTimeout(()=>p.remove(),14000);
+ }
+}
+function sparkleBurst(){
+ for(let i=0;i<26;i++){
+  const s=document.createElement('span');s.className='spark';s.textContent=['✦','✧','·'][i%3];
+  s.style.left=(25+Math.random()*50)+'vw';s.style.top=(22+Math.random()*45)+'vh';
+  s.style.fontSize=(10+Math.random()*15)+'px';s.style.animationDelay=(Math.random()*.65)+'s';
+  document.body.appendChild(s);setTimeout(()=>s.remove(),2400);
+ }
+}
+openBtn.addEventListener('click',()=>{
+ if(opened)return;opened=true;zone.classList.add('open');instruction.style.opacity='0';
+ bloom();fallingPetals();sparkleBurst();
+ setTimeout(()=>{wishes.classList.add('show');afterNote.classList.add('show');again.classList.add('show');instruction.style.display='none';},520);
+});
+again.addEventListener('click',()=>{
+ bloom();fallingPetals();sparkleBurst();
+});
+</script>
+</body>
+</html>
