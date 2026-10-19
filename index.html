@@ -9,7 +9,7 @@
 :root{--ink:#594a55;--rose:#ef829c;--coral:#f6a08d;--cream:#fffaf2;--lav:#d8c9f5;--leaf:#8cae91;--deep:#b94e75}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:radial-gradient(circle at 8% 15%,#ffffffaa 0 3px,transparent 4px),radial-gradient(circle at 88% 24%,#ffffffaa 0 2px,transparent 3px),linear-gradient(155deg,#fffaf2 0%,#fff0e8 46%,#f3edff 100%);background-size:43px 43px,59px 59px,auto;overflow-x:hidden}
+body{margin:0;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:radial-gradient(circle at 8% 15%,#ffffffaa 0 3px,transparent 4px),radial-gradient(circle at 88%[...]
 button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 button:focus-visible{outline:3px solid #8d73bd;outline-offset:3px}
 main{width:min(780px,100%);margin:auto;padding:18px 15px 50px}
@@ -30,24 +30,23 @@ p{line-height:1.8}
 .envelope-area{display:grid;place-items:center;margin:22px 0 16px}
 .envelope{position:relative;width:min(280px,76vw);height:174px;border:0;border-radius:15px;background:#e9a9b8;box-shadow:0 13px 25px #9b5d6b22;isolation:isolate;transition:transform .3s}
 .envelope:before{content:"";position:absolute;inset:0;background:#f5c6cb;clip-path:polygon(0 0,100% 0,50% 63%);border-radius:15px 15px 0 0;transform-origin:top;transition:transform .6s;z-index:3}
-.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#f2b4c3,#e99bad);clip-path:polygon(0 100%,0 0,50% 54%,100% 0,100% 100%);border-radius:0 0 15px 15px;z-index:2}
+.envelope:after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#f2b4c3,#e99bad);clip-path:polygon(0 100%,0 0,50% 54%,100% 0,100% 100%);border-radius:0 0 15px 15px;z-index:2[...]
 .envelope.open:before{transform:rotateX(180deg);z-index:0}
 .seal{position:absolute;z-index:4;left:50%;top:48%;transform:translate(-50%,-50%);font-size:2.6rem;filter:drop-shadow(0 2px 0 #fff8)}
 .envelope.open .seal{opacity:0;transition:opacity .15s}
-.flower-stage{position:relative;height:clamp(300px,84vw,450px);max-height:460px;display:grid;place-items:center;overflow:hidden;border-radius:24px;background:radial-gradient(ellipse at center,#fffdf7 0%,#fff7f0 48%,#f7efff 100%);margin:16px 0}
+.flower-stage{position:relative;height:clamp(300px,84vw,450px);max-height:460px;display:grid;place-items:center;overflow:hidden;border-radius:24px;background:radial-gradient(ellipse at center,#fff[...]
 .flower{position:relative;width:300px;height:300px;max-width:90vw;max-height:90vw;transform:scale(.12) rotate(-22deg);opacity:0;transition:transform 1.1s cubic-bezier(.16,1.2,.28,1),opacity .25s}
 .flower.bloom{transform:scale(1) rotate(0);opacity:1}
 .stem{position:absolute;width:8px;height:160px;left:146px;top:139px;background:linear-gradient(90deg,#729979,#a9c4a3);border-radius:99px;transform:rotate(3deg);transform-origin:top;z-index:0}
 .leaf{position:absolute;width:65px;height:32px;background:linear-gradient(145deg,#b5cfaa,#7eaa89);border-radius:100% 0 100% 0;z-index:1}
 .leaf.one{left:90px;top:217px;transform:rotate(18deg)}.leaf.two{left:151px;top:250px;transform:rotate(188deg)}
-.petals{position:absolute;inset:0;z-index:2}
-.petal{position:absolute;left:50%;top:50%;width:100px;height:135px;margin-left:-50px;margin-top:-122px;transform-origin:50% 122px;display:flex;align-items:center;justify-content:center;opacity:0;transform:rotate(var(--angle)) translateY(-14px) scale(.12);transition:transform .8s cubic-bezier(.16,1.2,.28,1),opacity .35s}
+.petal{position:absolute;left:50%;top:50%;width:100px;height:135px;margin-left:-50px;margin-top:-122px;transform-origin:50% 122px;display:flex;align-items:center;justify-content:center;opacity:0;t[...]
 .bloom .petal{opacity:1;transform:rotate(var(--angle)) translateY(-4px) scale(1);transition-delay:var(--delay)}
-.petal-shape{position:absolute;inset:0;border-radius:52% 52% 42% 42% / 60% 60% 38% 38%;background:linear-gradient(150deg,#ffe1d9,#ef91a8);box-shadow:inset 0 3px 9px #fff8,0 4px 10px #b86e7c14;border:1px solid #f4b8c3;box-shadow:inset 0 3px 9px #fff8,0 5px 12px #b86e7c18}
+.petal-shape{position:absolute;inset:0;border-radius:52% 52% 42% 42% / 60% 60% 38% 38%;background:linear-gradient(150deg,#ffe1d9,#ef91a8);box-shadow:inset 0 3px 9px #fff8,0 4px 10px #b86e7c14;bord[...]
 .petal:nth-child(2n) .petal-shape{background:linear-gradient(150deg,#fff0db,#f6b5b5)}
 .petal:nth-child(3n) .petal-shape{background:linear-gradient(150deg,#f2e9ff,#cbb8ed)}
-.petal-text{position:relative;z-index:1;width:82px;text-align:center;font-size:9px;line-height:1.25;font-weight:900;color:#774b5c;transform:rotate(calc(var(--angle) * -1));padding-top:14px;text-wrap:balance}
-.flower-center{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;z-index:4;background:radial-gradient(circle at 35% 30%,#fff0a7,#f4bd66 65%,#e9a75e);border:5px solid #fff3d5;display:grid;place-items:center;font-size:1.8rem;box-shadow:0 4px 12px #b77b4c22;transform:scale(0);transition:transform .45s .65s cubic-bezier(.16,1.5,.3,1)}
+.petal-text{position:relative;z-index:1;width:82px;text-align:center;font-size:9px;line-height:1.25;font-weight:900;color:#774b5c;transform:rotate(calc(var(--angle) * -1));padding-top:14px;text-wr[...]
+.flower-center{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;z-index:4;background:radial-gradient(circle at 35% 30%,#fff0a7,#f4bd66 65%,#e9a75e[...]
 .bloom .flower-center{transform:scale(1)}
 .flower-caption{position:absolute;bottom:13px;left:12px;right:12px;text-align:center;font-size:.8rem;color:#9c8291;font-weight:800}
 .letter-copy{font-size:1rem;line-height:1.9}
@@ -64,11 +63,30 @@ footer{text-align:center;color:#a28d98;font-size:.82rem;margin-top:25px}
 @keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translateY(-110vh) rotate(250deg) scale(1.25);opacity:0}}
 @keyframes spark{0%{transform:scale(0) rotate(0);opacity:0}40%{transform:scale(1.4) rotate(80deg);opacity:1}100%{transform:scale(0) rotate(180deg);opacity:0}}
 @keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:380px){.petal{width:88px;height:120px;margin-left:-44px;margin-top:-108px;transform-origin:50% 108px}.petal-text{font-size:8px;width:73px}.flower{transform-origin:center}.wish-grid{grid-template-columns:1fr}}
+@media(max-width:380px){.petal{width:88px;height:120px;margin-left:-44px;margin-top:-108px;transform-origin:50% 108px}.petal-text{font-size:8px;width:73px}.flower{transform-origin:center}.wish-gri[...]
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<!-- Background music (added by Copilot). Place a file named "music.mp3" at the repo root to enable. -->
+<audio id="bg-audio" src="music.mp3" loop playsinline></audio>
+<button id="audio-unmute-btn" aria-hidden="true" style="position:fixed;right:12px;bottom:12px;z-index:9999;padding:10px 12px;border-radius:10px;border:0;background:#b96985;color:#fff;display:none">Bật nhạc</button>
+<script>
+(function(){
+  const audio=document.getElementById('bg-audio');
+  const btn=document.getElementById('audio-unmute-btn');
+  function tryPlay(){
+    if(!audio) return;
+    const p=audio.play();
+    if(p!==undefined){
+      p.then(()=>{ /* playing */ btn.style.display='none'; btn.setAttribute('aria-hidden','true'); })
+       .catch(()=>{ /* autoplay blocked */ btn.style.display='inline-block'; btn.removeAttribute('aria-hidden'); });
+    }
+  }
+  document.addEventListener('DOMContentLoaded', tryPlay);
+  btn.addEventListener('click', function(){ audio.play().catch(()=>{}); btn.style.display='none'; btn.setAttribute('aria-hidden','true'); });
+})();
+</script>
 <main>
   <div class="top">✧･ﾟ: *✧･ﾟ:* 20/10 • MADE FOR QUYÊN *:･ﾟ✧*:･ﾟ✧</div>
   <section class="hero">
@@ -83,8 +101,8 @@ footer{text-align:center;color:#a28d98;font-size:.82rem;margin-top:25px}
   <section class="card hidden" id="letter">
     <div class="kicker" style="text-align:center">GỬI QUYÊN, NHÂN NGÀY 20/10 🌼</div>
     <h2 style="text-align:center">Một bông hoa dành cho bà</h2>
-    <p class="letter-copy">Chúc mừng ngày Phụ nữ Việt Nam 20/10 nha Quyên 💐 Chúc bà luôn vui vẻ, khỏe mạnh, học hành thuận lợi, gặp nhiều may mắn và luôn có những người thật lòng thương quý bà. Mong những điều bà cố gắng đều có kết quả xứng đáng, ngày buồn thì ngắn thôi, còn ngày vui thì dài thiệt dài. Nhớ yêu thương bản thân và tự hào về chính mình nha! 🌷</p>
-    <p class="letter-copy">Bấm mở bông hoa bên dưới nè — mỗi cánh có một lời chúc nhỏ. Đọc hết là nhận được nguyên bó yêu thương đó, không thu phí =)))</p>
+    <p class="letter-copy">Chúc mừng ngày Phụ nữ Việt Nam 20/10 nha Quyên 💐 Chúc bà luôn vui vẻ, khỏe mạnh, học hành thuận lợi, gặp nhiều may mắn và luôn có [...]
+    <p class="letter-copy">Bấm mở bông hoa bên dưới nè — mỗi cánh có một lời chúc nhỏ. Đọc hết là nhận được nguyên bó yêu thương đó, không thu phí =)))<[...]
     <div class="flower-stage" id="flowerStage">
       <div class="flower" id="flower">
         <div class="stem"></div><div class="leaf one"></div><div class="leaf two"></div>
@@ -117,7 +135,7 @@ footer{text-align:center;color:#a28d98;font-size:.82rem;margin-top:25px}
   <section class="card finale hidden" id="finale">
     <div class="flowers">🌷 ✦ 🌼 ✦ 🌷</div>
     <h2>Mãi xinh đẹp, vui vẻ và hạnh phúc nha Quyên!</h2>
-    <p>Chúc bà 20/10 thật tuyệt vời 💐 Mong bà luôn được trân trọng, luôn có lý do để cười và đủ can đảm để theo đuổi những điều mình thích. Cảm ơn vì đã là một người bạn đáng quý nha!</p>
+    <p>Chúc bà 20/10 thật tuyệt vời 💐 Mong bà luôn được trân trọng, luôn có lý do để cười và đủ can đảm để theo đuổi những điều mình thích. Cảm [...]
     <div class="big-beo" style="font-size:clamp(1.9rem,7vw,3.2rem)">BÉO NHƯNG ĐÁNG IU =)))</div>
     <div class="btns"><button class="btn" id="againBtn">Xem lại từ đầu ↻</button><button class="btn alt" id="lastBtn">Một cú BÉO cuối 😭</button></div>
   </section>
@@ -148,8 +166,8 @@ const petals=[
 function show(el){el.classList.remove('hidden')}
 function floaties(n=20){
 const icons=['♡','✦','🌸','🌷','💗','✨','🍀'];
-for(let i=0;i<n;i++){const e=document.createElement('span');e.className='floaty';e.textContent=icons[Math.floor(Math.random()*icons.length)];e.style.setProperty('--x',Math.random()*100+'vw');e.style.setProperty('--s',(16+Math.random()*22)+'px');e.style.setProperty('--d',(2.2+Math.random()*2.2)+'s');document.body.append(e);setTimeout(()=>e.remove(),4700)}
-for(let i=0;i<10;i++){const e=document.createElement('span');e.className='spark';e.textContent='✦';e.style.left=Math.random()*100+'vw';e.style.top=Math.random()*75+'vh';e.style.fontSize=(12+Math.random()*16)+'px';document.body.append(e);setTimeout(()=>e.remove(),900)}
+for(let i=0;i<n;i++){const e=document.createElement('span');e.className='floaty';e.textContent=icons[Math.floor(Math.random()*icons.length)];e.style.setProperty('--x',Math.random()*100+'vw');e.st[...]
+for(let i=0;i<10;i++){const e=document.createElement('span');e.className='spark';e.textContent='✦';e.style.left=Math.random()*100+'vw';e.style.top=Math.random()*75+'vh';e.style.fontSize=(12+Mat[...]
 }
 function buildFlower(){
 const host=$('petals');host.innerHTML='';
@@ -158,7 +176,7 @@ const p=document.createElement('div');p.className='petal';p.style.setProperty('-
 p.innerHTML='<div class="petal-shape"></div><div class="petal-text">'+petals[i]+'</div>';host.append(p)
 }}
 function bloom(){
-if(!opened){opened=true;flower.classList.add('bloom');$('flowerCaption').textContent='Một cánh hoa, một lời chúc dành cho bà 💗';floaties(35);$('bloomBtn').textContent='Hoa nở rồi nè 🌼'}
+if(!opened){opened=true;flower.classList.add('bloom');$('flowerCaption').textContent='Một cánh hoa, một lời chúc dành cho bà 💗';floaties(35);$('bloomBtn').textContent='Hoa nở rồi[...]
 else{flower.classList.remove('bloom');void flower.offsetWidth;setTimeout(()=>flower.classList.add('bloom'),50);floaties(20)}
 }
 function openLetter(){
@@ -167,17 +185,17 @@ setTimeout(()=>{letter.scrollIntoView({behavior:'smooth',block:'start'});setTime
 }
 envelope.addEventListener('click',openLetter);$('openBtn').addEventListener('click',openLetter);$('bloomBtn').addEventListener('click',bloom);
 function addWishes(target,n=6){
-for(let i=0;i<n;i++){const t=wishes[Math.floor(Math.random()*wishes.length)];const e=document.createElement('div');e.className='wish';e.innerHTML='<strong>♡ Lời chúc #'+(target.children.length+1)+'</strong><br>'+t.replaceAll('BÉO','<strong>BÉO</strong>');target.prepend(e);if(target.children.length>24)target.lastElementChild.remove()}
+for(let i=0;i<n;i++){const t=wishes[Math.floor(Math.random()*wishes.length)];const e=document.createElement('div');e.className='wish';e.innerHTML='<strong>♡ Lời chúc #'+(target.children.leng[...]
 }
 $('nextBtn').addEventListener('click',()=>{show($('tease'));show($('moreSection'));addWishes($('spamGrid'),8);floaties(32);$('tease').scrollIntoView({behavior:'smooth',block:'start'})});
 function spam(n=10){count+=n;$('count').textContent=count.toLocaleString('vi-VN');addWishes($('spamGrid'),Math.min(10,n));floaties(Math.min(35,n*2))}
 $('spamBtn').addEventListener('click',()=>spam(12));
-$('thousandBtn').addEventListener('click',()=>{count+=1000;$('count').textContent=count.toLocaleString('vi-VN');addWishes($('spamGrid'),12);addWishes($('wishGrid'),12);show($('moreSection'));floaties(50);$('thousandBtn').textContent='ĐÃ GỬI 1000 CHỮ BÉO 😭💗'});
+$('thousandBtn').addEventListener('click',()=>{count+=1000;$('count').textContent=count.toLocaleString('vi-VN');addWishes($('spamGrid'),12);addWishes($('wishGrid'),12);show($('moreSection'));floa[...]
 $('moreBtn').addEventListener('click',()=>{addWishes($('wishGrid'),8);spam(3);floaties(18)});
 $('endBtn').addEventListener('click',()=>{show($('finale'));floaties(42);$('finale').scrollIntoView({behavior:'smooth',block:'center'})});
 $('lastBtn').addEventListener('click',()=>{spam(100);floaties(55)});
-$('againBtn').addEventListener('click',()=>{[letter,$('tease'),$('moreSection'),$('finale')].forEach(x=>x.classList.add('hidden'));envelope.classList.remove('open');flower.classList.remove('bloom');opened=false;count=0;$('count').textContent='0';$('spamGrid').innerHTML='';$('wishGrid').innerHTML='';$('thousandBtn').textContent='Nhận 1000 lời chúc ✨';window.scrollTo({top:0,behavior:'smooth'});floaties(12)});
-document.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;const a=document.createElement('span');a.className='floaty';a.textContent=['♡','✦','🌸','💗'][Math.floor(Math.random()*4)];a.style.left=e.clientX+'px';a.style.bottom=(innerHeight-e.clientY)+'px';a.style.setProperty('--d','2.3s');a.style.setProperty('--s','25px');document.body.append(a);setTimeout(()=>a.remove(),2500)},{passive:true});
+$('againBtn').addEventListener('click',()=>{[letter,$('tease'),$('moreSection'),$('finale')].forEach(x=>x.classList.add('hidden'));envelope.classList.remove('open');flower.classList.remove('bloom[...]
+document.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;const a=document.createElement('span');a.className='floaty';a.textContent=['♡','✦','🌸','💗'][Math.floor(M[...]
 setTimeout(()=>floaties(7),400);
 })();
 </script>
